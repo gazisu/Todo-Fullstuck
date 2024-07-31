@@ -13,6 +13,7 @@ namespace WebApplication1.Controllers
         private IConfiguration _configuration;
         private object newNotes;
 
+        
         public TodoAppControler(IConfiguration configuration)
 
         {
