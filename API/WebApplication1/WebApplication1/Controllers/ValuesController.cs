@@ -12,8 +12,8 @@ namespace WebApplication1.Controllers
     {
         private IConfiguration _configuration;
         private object newNotes;
+        private int rowsAffected;
 
-        
         public TodoAppControler(IConfiguration configuration)
 
         {
@@ -31,9 +31,9 @@ namespace WebApplication1.Controllers
             using (SqlConnection myCon = new(sqlDataresource))
             {
                 myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query,myCon))
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myReader=myCommand.ExecuteReader();
+                    myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
@@ -104,7 +104,8 @@ namespace WebApplication1.Controllers
         [Route("DeleteNotes")]
         public JsonResult DeleteNotes(int id)
         {
-            string query = "Delete from dbo.notes where id=@id";
+            string query = "Delete from dbo.notes where id=@id " +
+                "SELECT @@ROWCOUNT AS DELETED;";
             DataTable table = new DataTable();
             string sqlDataresource = _configuration.GetConnectionString("TotoAppDBCon");
             SqlDataReader myReader;
@@ -118,12 +119,21 @@ namespace WebApplication1.Controllers
                     table.Load(myReader);
                     myReader.Close();
                     myCon.Close();
-
-
                 }
-
             }
-            return new JsonResult("Data Deleted Successfully");
+
+            if (table != null && table.Rows.Count > 0)
+            {
+                rowsAffected = Convert.ToInt32(table.Rows[0]["DELETED"]);
+            }
+            if (rowsAffected > 0)
+            {
+                return new JsonResult("Data Deleted Successfully");
+            }
+            else
+            {
+                return new JsonResult("No data deleted");
+            }
 
         }
     }

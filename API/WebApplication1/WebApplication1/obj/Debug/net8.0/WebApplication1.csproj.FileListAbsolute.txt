@@ -26,6 +26,7 @@ D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\We
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.csproj.CoreCompileInputs.cache
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\staticwebassets.build.json
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\staticwebassets.development.json
 D:\Projects\Todo Project\API\WebApplication1\WebApplication1\obj\Debug\net8.0\staticwebassets\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props
